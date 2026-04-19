@@ -1,33 +1,67 @@
-const mongoose=require('mongoose');
-const schema=mongoose.Schema;
+// const mongoose=require('mongoose');
+// const schema=mongoose.Schema;
 
-const orderitemschema=new schema({
-    product:[{
-        type:schema.Types.ObjectId,
-        ref:"product",
-        required:true
-    }],
-    size:{
-        type:String,
+// const orderitemschema=new schema({
+//     product:[{
+//         type:schema.Types.ObjectId,
+//         ref:"product",
+//         required:true
+//     }],
+//     size:{
+//         type:String,
+//     },
+//     quantity:{
+//         type:Number,
+//         required:true
+//     },
+//     price:{
+//         type:Number,
+//         required:true,
+//     },
+//     discountedprice:{
+//         type:Number,
+//         required:true,
+//     },
+//     userid:{
+//         type:schema.Types.ObjectId,
+//         ref:"users",
+//         required:true,
+//     }
+// })
+
+// const orderitems=mongoose.model('orderitems',orderitemschema)
+// module.exports=orderitems;
+const mongoose = require('mongoose');
+const schema = mongoose.Schema;
+
+const orderitemschema = new schema({
+    // ✅ was array [{...}] — changed to single ObjectId
+    product: {
+        type: schema.Types.ObjectId,
+        ref: "product",
+        required: true
     },
-    quantity:{
-        type:Number,
-        required:true
+    size: {
+        type: String,
     },
-    price:{
-        type:Number,
-        required:true,
+    quantity: {
+        type: Number,
+        required: true
     },
-    discountedprice:{
-        type:Number,
-        required:true,
+    price: {
+        type: Number,
+        required: true,
     },
-    userid:{
-        type:schema.Types.ObjectId,
-        ref:"users",
-        required:true,
+    discountedprice: {
+        type: Number,
+        required: true,
+    },
+    userid: {
+        type: schema.Types.ObjectId,
+        ref: "users",
+        required: true,
     }
 })
 
-const orderitems=mongoose.model('orderitems',orderitemschema)
-module.exports=orderitems;
+const orderitems = mongoose.model('orderitems', orderitemschema)
+module.exports = orderitems;
