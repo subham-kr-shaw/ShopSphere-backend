@@ -5,7 +5,7 @@ const { createmultipleproducts, createproducts, deleteproducts, updateproducts }
 const adminproductrouter=Router();
 adminproductrouter.post("/",authentication,createproducts);
 adminproductrouter.post("/creates",authentication,createmultipleproducts);
-adminproductrouter.post("/:id",authentication,deleteproducts);
+adminproductrouter.delete("/:id",authentication,deleteproducts);
 adminproductrouter.post("/:id",authentication,updateproducts);
 
 module.exports=adminproductrouter;
