@@ -1,13 +1,24 @@
 const { createproduct, deleteproduct, updateproduct, findproductbyid, getallproduct, createmultipleproduct } = require("../services/product.service")
 
+// const createproducts = async (req, res) => {
+//     try {
+//         const product = await createproduct(req.body);
+//         if (!product) return res.status(500).send({ message: "product not created" })
+//         res.status(201).send({ product: product });
+
+//     } catch (error) {
+//         res.status(404).send({ message: error.message });
+//     }
+// }
 const createproducts = async (req, res) => {
     try {
+        console.log("req.body:", req.body); // 👈 add this to see what's coming in
         const product = await createproduct(req.body);
-        if (!product) return res.status(500).send({ message: "product not created" })
+        if (!product) return res.status(500).send({ message: "product not created" });
         res.status(201).send({ product: product });
-
     } catch (error) {
-        res.status(500).send({ message: error.message });
+        console.log("Error in createproducts:", error); // 👈 this will show the real problem
+        res.status(500).send({ message: error.message }); // ✅ 500 not 404
     }
 }
 

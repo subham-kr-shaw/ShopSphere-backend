@@ -272,7 +272,7 @@ const product = require("../models/product.model");
 
 const createproduct = async (reqdata) => {
     let toplevel = await category.findOne({ name: reqdata.toplevelcategory });
-    console.log(reqdata);
+    // console.log(reqdata);
     if (!toplevel) {
         toplevel = await new category({
             name: reqdata.toplevelcategory,
