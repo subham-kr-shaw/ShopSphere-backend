@@ -1,6 +1,7 @@
 const { getuseridfromtoken } = require("../config/jwtprovider");
-const User = require("../models/user.model");
+// const User = require("../models/user.model");
 const bcrypt = require("bcrypt");
+const User = require("../models/user.model");
 
 const createuser = async (userdata) => {
   try {

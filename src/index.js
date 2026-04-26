@@ -10,11 +10,13 @@ const ratingrouter = require('./routes/rating.routes');
 const cartitemrouter = require('./routes/cartitem.routes');
 const orderrouter = require('./routes/order.routes');
 const reviewrouter = require('./routes/reviews.routes');
+const { paymentrouter } = require('./routes/payment.routes');
 const app = express();
 app.use(cors());
 app.use(express.json());
 
 app.use('/api/user',userrouter);
+app.use('/api/payment/',paymentrouter);
 app.use('/auth',authrouter);
 app.use("/api/products",productrouter);
 app.use("/api/admin/orders",adminrouter);
