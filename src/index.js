@@ -12,8 +12,25 @@ const orderrouter = require('./routes/order.routes');
 const reviewrouter = require('./routes/reviews.routes');
 const { paymentrouter } = require('./routes/payment.routes');
 const app = express();
-app.use(cors());
+// app.use(cors());
+// app.use(express.json());
+const app = express();
+
+// ✅ Replace this
+// app.use(cors());
+
+// ✅ With this — put it BEFORE express.json()
+app.use(cors({
+  origin: "https://shopsphere-sandy.vercel.app",
+  methods: ["GET", "POST", "PUT", "DELETE", "OPTIONS", "PATCH"],
+  allowedHeaders: ["Content-Type", "Authorization"],
+  credentials: true
+}));
+app.options('*', cors());  // ✅ handles preflight for all routes
+
 app.use(express.json());
+
+// ... rest of your routes stay the same
 
 app.use('/api/user',userrouter);
 app.use('/api/payment/',paymentrouter);
