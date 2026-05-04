@@ -72,6 +72,7 @@ const getallproducts = async (req, res) => {
         return res.status(500).send({ message: error.message }); // ✅ 500 for server error
     }
 };
+
 const createmultipleproducts = async (req, res) => {
     try {
         const product = await createmultipleproduct(req.body);
