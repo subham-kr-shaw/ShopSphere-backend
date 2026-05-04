@@ -4,7 +4,7 @@ const { getallproducts, findproductbyids } = require("../controllers/product.con
 
 const productrouter = Router();
 
-productrouter.get('/',  getallproducts);
-productrouter.get('/id/:id', findproductbyids );
+productrouter.get('/',authentication,getallproducts);
+productrouter.get('/id/:id',authentication, findproductbyids );
 
 module.exports = productrouter;
