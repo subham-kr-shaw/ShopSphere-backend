@@ -17,16 +17,7 @@ const app = express();
 const app = express();
 
 // ✅ Replace this
-// app.use(cors());
-
-// ✅ With this — put it BEFORE express.json()
-app.use(cors({
-  origin: "https://shopsphere-sandy.vercel.app",
-  methods: ["GET", "POST", "PUT", "DELETE", "OPTIONS", "PATCH"],
-  allowedHeaders: ["Content-Type", "Authorization"],
-  credentials: true
-}));
-app.options('*', cors());  // ✅ handles preflight for all routes
+app.use(cors())
 
 app.use(express.json());
 
