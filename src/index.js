@@ -14,7 +14,6 @@ const { paymentrouter } = require('./routes/payment.routes');
 const app = express();
 // app.use(cors());
 // app.use(express.json());
-const app = express();
 
 // ✅ Replace this
 app.use(cors())
